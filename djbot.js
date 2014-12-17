@@ -4,6 +4,10 @@ piepan.On('connect', function() {
 });
 
 piepan.On('message', function(e) {
+ 
+  if(e.Message == "stop"){
+    piepan.Audio.Stop();
+  } else {
 
   var directory = "audio/";  
 
@@ -17,6 +21,10 @@ piepan.On('message', function(e) {
   }
   
   console.log("Playing track: ".concat(e.Message));
-  piepan.Audio.Play(directory.concat(e.Message));
+  piepan.Audio.Play({
+      filename: directory.concat(e.Message),
+    });
+
+  }
 
 });
