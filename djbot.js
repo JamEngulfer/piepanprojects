@@ -21,6 +21,8 @@ piepan.On('message', function(e) {
   }
   
   console.log("Playing track: ".concat(e.Message));
+  console.log("Current bitrate: ".concat(piepan.Audio.Bitrate());
+  piepan.Audio.SetBitrate(72000);
   piepan.Audio.Play({
       filename: directory.concat(e.Message),
     });
